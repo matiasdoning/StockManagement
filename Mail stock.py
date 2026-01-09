@@ -19,20 +19,18 @@ ssl._create_default_https_context = lambda: ssl_context
 # =====================================================
 def get_custom_tickers():
     """Tu lista de tickers personalizada"""
-    CUSTOM_TICKERS = [
-       "IBM", "PFE", "C", "GE", "INTC", "GS", "BAC", "VZ", "CSCO", "XOM", 
-       "JPM", "AMGN", "AMD", "BKNG", "JNJ", "CAT", "CVX", "PG", "MDT", "DE", 
-       "HON", "T", "PEP", "DIS", "SPGI", "LLY", "HD", "PM", "LOW", "COF", 
-       "QCOM", "WFC", "PLD", "BA", "ABT", "BLK", "MU", "ADP", "WMT", "NEE", 
-       "BX", "ORCL", "AXP", "UNH", "PGR", "ADBE", "MS", "MRK", "MCD", "KO", 
-       "BSX", "ISRG", "RTX", "CB", "KLAC", "TXN", "TSLA", "GOOGL", "ADI", 
-       "SYK", "ACN", "LIN", "SCHW", "GOOG", "AMZN", "TMUS", "UNP", "AAPL", 
-       "DHR", "LMT", "ETN", "PANW", "MSFT", "AMAT", "COST", "TMO", "NVDA", 
-       "WELL", "APH", "TJX", "LRCX", "NFLX", "ABBV", "GILD", "META", "CRM", 
-       "INTU", "MA", "ANET", "AVGO", "V", "NOW", "CRWD", "UBER", "HOOD", 
-       "APP", "CEG", "PLTR", "GEV"
-    ]
+
+
+# US and EU stocks
+
+#    CUSTOM_TICKERS = [        "ASML.AS", "MC.PA", "SAP.DE", "LIN.DE", "TTE.PA", "SIE.DE", "AI.PA", "SAN.PA", "ALV.DE", "SU.PA", "OR.PA", "ISP.MI", "COL.MC", "AIR.PA", "KER.PA", "DG.PA", "DTE.DE", "BAS.DE", "BNP.PA", "DTG.DE", "ABI.BR", "INGA.AS", "SAF.PA", "ENEL.MI", "DB1.DE", "EL.PA", "UCG.MI", "PRX.AS", "CS.PA", "MUV2.DE", "RACE.MI", "BMW.DE", "SAN.MC", "STLAM.MI", "IFX.DE", "IBE.MC", "ADYEN.AS", "VNA.DE", "MBG.DE", "DHL.DE", "ENR.DE", "RI.PA", "ENI.MI", "ITX.MC", "ASRNL.AS", "PHG.AS", "CRH", "ADS.DE", "NVDA", "AAPL", "MSFT", "AMZN", "META", "AVGO", "GOOGL", "GOOG", "TSLA", "BRK.B", "WMT", "JPM", "ORCL", "LLY", "V", "MA", "XOM", "NFLX", "JNJ", "PLTR", "COST", "AMD", "ABBV", "BAC", "HD", "PG", "UNH", "GE", "CVX", "KO", "IBM", "CSCO", "WFC", "MS", "AXP", "MU", "PM", "CAT", "TMUS", "CRM", "GS", "RTX", "ABT", "MRK", "MCD", "TMO", "APP", "LIN", "PEP", "DIS", "UBER", "ISRG", "ANET", "NOW", "LRCX", "INTU", "QCOM", "AMAT", "INTC", "T", "C", "BLK", "NEE", "SCHW", "BA", "BKNG", "VZ", "APH", "GEV", "TJX", "DHR", "AMGN", "KLAC", "TXN", "ACN", "GILD", "BSX", "SPGI", "ADBE", "PANW", "ETN", "SYK", "COF", "PFE", "HON", "LOW", "CRWD", "UNP", "PGR", "DE", "HOOD", "CEG", "BX", "MDT", "WELL", "PLD", "ADI", "ADP", "LMT", "CB"]
+
+# US stocks only
+
+    CUSTOM_TICKERS = ["IBM", "PFE", "C", "GE", "INTC", "GS", "BAC", "VZ", "CSCO", "XOM","JPM", "AMGN", "AMD", "BKNG", "JNJ", "CAT", "CVX", "PG", "MDT", "DE", "HON", "T", "PEP", "DIS", "SPGI", "LLY", "HD", "PM", "LOW", "COF","QCOM", "WFC", "PLD", "BA", "ABT", "BLK", "MU", "ADP", "WMT", "NEE", "BX", "ORCL", "AXP", "UNH", "PGR", "ADBE", "MS", "MRK", "MCD", "KO","BSX", "ISRG", "RTX", "CB", "KLAC", "TXN", "TSLA", "GOOGL", "ADI", "SYK", "ACN", "LIN", "SCHW", "GOOG", "AMZN", "TMUS", "UNP", "AAPL", "DHR", "LMT", "ETN", "PANW", "MSFT", "AMAT", "COST", "TMO", "NVDA",  "WELL", "APH", "TJX", "LRCX", "NFLX", "ABBV", "GILD", "META", "CRM",  "INTU", "MA", "ANET", "AVGO", "V", "NOW", "CRWD", "UBER", "HOOD","APP", "CEG", "PLTR", "GEV"]
+
     return CUSTOM_TICKERS
+
 
 # =====================================================
 # 2. INDICADORES EXACTAMENTE COMO EL BACKTEST
