@@ -1,7 +1,6 @@
 name: Test Email Alert
 
 on:
-  workflow_dispatch: # manual trigger
   schedule:
     - cron: '0 * * * *' # every hour at minute 0 (UTC)
 
