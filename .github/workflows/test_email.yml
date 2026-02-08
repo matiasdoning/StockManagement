@@ -6,7 +6,7 @@ on:
     - cron: '0 * * * *' # every hour at minute 0 (UTC)
 
 jobs:
-  send-test-email:
+  test-email:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
