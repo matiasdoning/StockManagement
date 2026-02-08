@@ -1,0 +1,26 @@
+name: Hourly Job
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Runs the job at the start of every hour
+
+jobs:
+  run-hourly-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x' # Adjust to your required Python version
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt # If you have a requirements file
+
+      - name: Run the script
+        run: python "Mail stock 1h.py"
