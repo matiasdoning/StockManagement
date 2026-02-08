@@ -1,7 +1,7 @@
 name: Test Email Alert
 
 on:
-  workflow_dispatch: # allows manual trigger
+  workflow_dispatch: # manual trigger
   schedule:
     - cron: '0 * * * *' # every hour at minute 0 (UTC)
 
@@ -18,36 +18,11 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install smtplib certifi
+        run: pip install certifi
 
-      - name: Send test email
+      - name: Run test email script
         env:
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
           EMAIL_RECIPIENT: ${{ secrets.EMAIL_USER }}
-        run: |
-          python - <<EOF
-import os
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-import ssl
-import certifi
-
-sender_email = os.environ.get("EMAIL_USER")
-sender_password = os.environ.get("EMAIL_PASS")
-recipient_email = os.environ.get("EMAIL_RECIPIENT")
-
-msg = MIMEMultipart("alternative")
-msg["Subject"] = "🟢 Test Email - It Works!"
-msg["From"] = sender_email
-msg["To"] = recipient_email
-body = "✅ This is a test email from GitHub Actions. It works!"
-msg.attach(MIMEText(body, "plain"))
-
-context = ssl.create_default_context(cafile=certifi.where())
-with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
-    server.login(sender_email, sender_password)
-    server.send_message(msg)
-print("📨 Test email sent successfully!")
-EOF
+        run: python test_email.py
