@@ -2,7 +2,7 @@ name: Test Email Alert
 
 on:
   schedule:
-    - cron: '15 * * * *' # every hour at minute 0 (UTC)
+  - cron: '*/5 * * * *' 
 
 jobs:
   test-email:
