@@ -10,21 +10,23 @@ on:
   workflow_dispatch:  # optional manual trigger
 
 jobs:
-  run-trading-alerts:
+  run-hourly-script:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
+      - name: Check out repository
         uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'  # or your preferred version
+          python-version: '3.x' # Adjust to your required Python version
 
-      - name: Run trading alerts
-        env:
-          EMAIL_USER: ${{ secrets.EMAIL_USER }}
-          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
-          EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
+      - name: Install dependencies
         run: |
-          python Mail stock 1h.py
+          pip install --upgrade pip
+          pip install -r requirements.txt # If you have a requirements file
+
+      - name: Run the script
+        run: python "Mail stock 1h.py"
+
