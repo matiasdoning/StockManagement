@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '0 * * * *' # Runs the job at the start of every hour
 
+  workflow_dispatch:  # optional manual trigger
+
+
 jobs:
   run-hourly-script:
     runs-on: ubuntu-latest
