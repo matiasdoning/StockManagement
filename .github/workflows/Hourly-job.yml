@@ -27,7 +27,7 @@ jobs:
 
       - name: Run the script
         env:
-          EMAIL_USER: ${{ secrets.EMAIL_USER }}
-          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASS }}
+          sender_email: ${{ secrets.EMAIL_USER }}
+          sender_password: ${{ secrets.EMAIL_PASS }}
         run: python "Mail stock 1h.py"
 
