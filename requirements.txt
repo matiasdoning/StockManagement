@@ -4,3 +4,9 @@ numpy
 requests
 certifi
 os
+datetime 
+io 
+smtplib
+email.mime.text
+email.mime.multipart
+ssl
