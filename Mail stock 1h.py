@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import yfinance as yf
 import numpy as np
@@ -90,7 +91,7 @@ def generate_signals(df, open_positions):
     owned_tickers = [pos['Ticker'] for pos in open_positions]
     df_buy = df[(df["RSI"] <= 20) & (df["BB_Position"] < 0)]
     df_buy = df_buy[~df_buy['Ticker'].isin(owned_tickers)].sort_values("RSI")
-    df_sell = df[(df["RSI"] >= 80) & (df["BB_Position"] > 1)]
+    df_sell = df[(df["RSI"] >= 75) & (df["BB_Position"] > 1)]
     df_sell = df_sell[df_sell['Ticker'].isin(owned_tickers)].sort_values("RSI", ascending=False)
     return df_buy, df_sell
 
