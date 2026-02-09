@@ -4,6 +4,7 @@ Author: Matias
 Goal: Identify potential BUY/SELL opportunities daily around 14h
 """
 
+import os
 import pandas as pd
 import yfinance as yf
 import numpy as np
