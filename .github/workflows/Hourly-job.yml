@@ -2,7 +2,7 @@ name: Hourly Job
 
 on:
   schedule:
-    - cron: '0 * * * *' # Runs the job at the start of every hour
+    - cron: '0 14-22 * * 1-5'   
 
   workflow_dispatch:  # optional manual trigger
 
