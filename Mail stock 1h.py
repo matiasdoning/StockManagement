@@ -98,7 +98,7 @@ def generate_signals(df, open_positions):
 # 6️⃣ Enviar email
 def send_email(df_buy, df_sell, open_positions):
     sender_email = os.environ.get("EMAIL_USER")
-    sender_password = os.environ.get("EMAIL_PASS")
+    sender_password = os.environ.get("rgzh scts sxhn ilkp")
     recipient_email = os.environ.get("EMAIL_USER")
 
     subject = f"📊 Trading Hourly Alert - {datetime.now().strftime('%d/%m/%Y %H:%M')}"
