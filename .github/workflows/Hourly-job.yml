@@ -23,4 +23,8 @@ jobs:
           pip install -r requirements.txt # If you have a requirements file
 
       - name: Run the script
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
         run: python "Mail stock 1h.py"
+
