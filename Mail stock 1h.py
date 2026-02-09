@@ -1,9 +1,9 @@
-import os
 import pandas as pd
 import yfinance as yf
 import numpy as np
 from datetime import datetime, timedelta
 import requests
+import os
 from io import StringIO
 import smtplib
 from email.mime.text import MIMEText
@@ -97,9 +97,9 @@ def generate_signals(df, open_positions):
 
 # 6️⃣ Enviar email
 def send_email(df_buy, df_sell, open_positions):
-    sender_email = os.environ.get("matiasdoning@gmail.com")
-    sender_password = os.environ.get("txeoobeiibdtxdne")
-    recipient_email = os.environ.get("matiasdoning@gmail.com")
+    sender_email = "matiasdoning@gmail.com"
+    sender_password = "rgzh scts sxhn ilkp"
+    recipient_email = "matiasdoning@gmail.com"
 
     subject = f"📊 Trading Hourly Alert - {datetime.now().strftime('%d/%m/%Y %H:%M')}"
     body = f"<h2>📈 Señales de Trading - {datetime.now().strftime('%d/%m/%Y %H:%M')}</h2>"
@@ -152,6 +152,7 @@ def send_email(df_buy, df_sell, open_positions):
     except Exception as e:
         print(f"Error enviando email: {e}")
 
+
 # 7️⃣ MAIN
 def main():
     tickers = get_custom_tickers()
@@ -160,13 +161,15 @@ def main():
     df_buy, df_sell = generate_signals(df, open_positions)
     print(f"📊 Signals found - Buy: {len(df_buy)}, Sell: {len(df_sell)}")
     
+
     # Only send email if there is at least one trade signal
     if not df_buy.empty or not df_sell.empty:
         send_email(df_buy, df_sell, open_positions)
         print("✅ Email sent with trade signals")
     else:
-        send_email(df_buy, df_sell, open_positions)
         print("ℹ️ No trade signals - no email sent")
-        print(df_buy)
+
+
 if __name__ == "__main__":
     main()
+
