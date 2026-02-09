@@ -145,7 +145,7 @@ def send_email(df_buy, df_sell, open_positions):
 
     try:
         context = ssl.create_default_context(cafile=certifi.where())
-        with smtplib.SMTP_SSL("smtp.gmail.com", 587, context=context) as server:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
             server.login(sender_email, sender_password)
             server.send_message(msg)
         print(f"📨 Email enviado a {recipient_email}")
