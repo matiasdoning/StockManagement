@@ -167,6 +167,6 @@ def main():
     else:
         send_email(df_buy, df_sell, open_positions)
         print("ℹ️ No trade signals - no email sent")
-
+        print(df_buy)
 if __name__ == "__main__":
     main()
