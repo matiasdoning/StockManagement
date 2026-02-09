@@ -11,6 +11,9 @@ from email.mime.multipart import MIMEMultipart
 import ssl
 import certifi
 
+sender_email = os.environ.get("sender_email")
+sender_password = os.environ.get("sender_password")
+
 # --- SSL fix for macOS ---
 ssl_context = ssl.create_default_context(cafile=certifi.where())
 ssl._create_default_https_context = lambda: ssl_context
@@ -97,9 +100,6 @@ def generate_signals(df, open_positions):
 
 # 6️⃣ Enviar email
 def send_email(df_buy, df_sell, open_positions):
-    sender_email = os.environ.get("sender_email")
-    password = os.environ.get("sender_password")
-    recipient_email = os.environ.get("sender_email")
 
     subject = f"📊 Trading Hourly Alert - {datetime.now().strftime('%d/%m/%Y %H:%M')}"
     body = f"<h2>📈 Señales de Trading - {datetime.now().strftime('%d/%m/%Y %H:%M')}</h2>"
@@ -140,7 +140,7 @@ def send_email(df_buy, df_sell, open_positions):
     msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
     msg["From"] = sender_email
-    msg["To"] = recipient_email
+    msg["To"] = sender_email
     msg.attach(MIMEText(body, "html"))
 
     try:
@@ -148,7 +148,7 @@ def send_email(df_buy, df_sell, open_positions):
         with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
             server.login(sender_email, sender_password)
             server.send_message(msg)
-        print(f"📨 Email enviado a {recipient_email}")
+        print(f"📨 Email enviado a {sender_email}")
     except Exception as e:
         print(f"Error enviando email: {e}")
 
